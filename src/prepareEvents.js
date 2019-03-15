@@ -1,5 +1,5 @@
-const isSameDay = require('date-fns/is_same_day');
-const format = require('date-fns/format');
+const isSameDay = require("date-fns/is_same_day");
+const format = require("date-fns/format");
 
 /**
  * @typedef {{
@@ -112,7 +112,7 @@ function formatDate(date, customParams = {}) {
   const parts = [];
 
   if (params.withDate) {
-    parts.push(format(date, "MM.DD.YYYY"));
+    parts.push(format(date, "DD.MM.YYYY"));
   }
   if (params.withTime) {
     parts.push(format(date, "HH:mm"));
