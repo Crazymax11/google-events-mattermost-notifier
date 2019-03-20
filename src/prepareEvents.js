@@ -16,7 +16,10 @@ const format = require("date-fns/format");
 module.exports = function prepareEvents(events) {
   return (
     events
-      .filter(e => e.status === "confirmed")
+      // confirmed - подтвержденные, tentative - ожидают подтверждения.
+      // некоторые календарные клиенты создают события с этим статусом
+      // также есть статус canceled
+      .filter(e => e.status === "confirmed" || e.status === "tentative")
       // Сортируем события по их времени старта
       .sort((firstEvent, secondEvent) => {
         const firstTime = getDateFromCalendar(firstEvent.start).getTime();
